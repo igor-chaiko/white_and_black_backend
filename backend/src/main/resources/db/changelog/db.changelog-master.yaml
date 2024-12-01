@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/migrations/2024-12-01-create-users.sql
+  - include:
+      file: db/changelog/migrations/2024-12-01-add-user-unique-constraint.sql
