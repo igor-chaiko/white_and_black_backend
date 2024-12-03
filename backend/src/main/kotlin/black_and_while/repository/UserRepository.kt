@@ -18,4 +18,6 @@ interface UserRepository : CrudRepository<User, Long> {
         @Param("password") password: String,
         @Param("email") email: String
     ): Int
+
+    fun findByLogin(login: String): User?
 }
