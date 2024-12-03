@@ -1,7 +1,9 @@
 package black_and_while.model.dto
 
+import javax.validation.constraints.Email
+
 data class UserDto(
     val login: String,
     val password: String,
-    val email: String,
+    @Email val email: String,
 )
