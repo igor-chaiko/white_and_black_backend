@@ -2,6 +2,7 @@ package black_and_while.model.entity
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
+import javax.validation.constraints.Email
 import javax.validation.constraints.Size
 
 @Table(
@@ -12,5 +13,6 @@ data class User(
     val login: String,
     @field:Size(min = 7, message = "Пароль должен содержать не менее 7 символов")
     val password: String,
+    @Email
     val email: String,
 )

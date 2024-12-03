@@ -20,6 +20,4 @@ class JwtUserDetailsService(
             .password(user.password)
             .build()
     }
-
-
 }

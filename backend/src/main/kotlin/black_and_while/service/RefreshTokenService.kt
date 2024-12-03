@@ -24,6 +24,7 @@ class RefreshTokenService(
 
     fun findUserDetailsByToken(token: String): UserDetails {
         val entity: RefreshToken = refreshTokenRepository.findByToken(token)
+            ?: throw UsernameNotFoundException("User not found")
         val username = entity.username
         val user: User = userRepository.findByLogin(username)
             ?: throw UsernameNotFoundException(("User $username not found!"))
@@ -34,7 +35,4 @@ class RefreshTokenService(
         )
         return userDetails
     }
-
-
-
 }

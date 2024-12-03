@@ -69,8 +69,4 @@ class SecurityConfig(
             it.setUserDetailsService(jwtUserDetailsService)
         }
 
-
-
-
-
 }

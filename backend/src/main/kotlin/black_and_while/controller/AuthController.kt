@@ -20,7 +20,7 @@ class AuthController(
     fun refreshAccessToken(@RequestBody refreshRequestDto: RefreshRequestDto) =
         RefreshResponseDto(
             authenticationService.
-            updateAccessToken(refreshRequestDto.token)
+            updateAccessToken(refreshRequestDto.refreshToken)
         )
 
     @PostMapping("/login")

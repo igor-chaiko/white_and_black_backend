@@ -5,5 +5,6 @@ import javax.validation.constraints.Email
 data class UserDto(
     val login: String,
     val password: String,
-    @Email val email: String,
+    @Email
+    val email: String,
 )

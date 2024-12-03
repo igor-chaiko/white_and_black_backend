@@ -62,8 +62,6 @@ class AuthenticationService(
                     + accessTokenExpiration)
         )
 
-
-
     private fun createRefreshToken(user: UserDetails) =
         tokenService.generateToken(
             subject = user.username,
