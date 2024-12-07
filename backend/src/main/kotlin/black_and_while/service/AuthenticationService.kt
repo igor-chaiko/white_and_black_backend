@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service
 import java.util.*
-import javax.validation.Valid
 
 @Service
 class AuthenticationService(
@@ -21,7 +20,7 @@ class AuthenticationService(
     @Value("\${jwt.accessTokenExpiration}") private val accessTokenExpiration: Long,
     @Value("\${jwt.refreshTokenExpiration}") private val refreshTokenExpiration: Long,
 ) {
-    fun authentication(@Valid authenticationRequest: AuthenticationRequestDto): AuthenticationResponseDto {
+    fun authentication(authenticationRequest: AuthenticationRequestDto): AuthenticationResponseDto {
         authManager.authenticate(
             UsernamePasswordAuthenticationToken(
                 authenticationRequest.login,
