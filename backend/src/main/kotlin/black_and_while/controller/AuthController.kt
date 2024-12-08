@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import javax.validation.Valid
+import jakarta.validation.Valid
 
 @RestController
 @RequestMapping("/auth")
@@ -24,11 +24,11 @@ class AuthController(
         )
 
     @PostMapping("/login")
-    fun authenticate(@RequestBody authenticationRequestDto: AuthenticationRequestDto) =
+    fun authenticate(@Valid @RequestBody authenticationRequestDto: AuthenticationRequestDto) =
             authenticationService.authentication(authenticationRequestDto)
 
     @PostMapping("/register")
-    fun register(@RequestBody @Valid userDto: UserDto) : AuthenticationResponseDto {
+    fun register(@Valid @RequestBody userDto: UserDto) : AuthenticationResponseDto {
         val user = User(
             login = userDto.login,
             password = userDto.password,
