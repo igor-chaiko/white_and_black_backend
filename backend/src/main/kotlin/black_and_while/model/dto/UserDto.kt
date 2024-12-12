@@ -9,6 +9,6 @@ data class UserDto(
     val login: String,
     @field:Size(min = 8, message = "Длина пароля должна быть не менее 8 символов")
     val password: String,
-    @field:Email
+    @field:Email(message = "Email должен соответсвовать формату")
     val email: String,
 )
