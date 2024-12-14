@@ -1,4 +1,4 @@
-package black_and_while.model.dto
+package black_and_while.model.dto.auth
 
 import jakarta.validation.constraints.Size
 

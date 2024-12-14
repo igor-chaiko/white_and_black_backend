@@ -1,7 +1,7 @@
 package black_and_while.service
 
-import black_and_while.model.dto.AuthenticationRequestDto
-import black_and_while.model.dto.AuthenticationResponseDto
+import black_and_while.model.dto.auth.AuthenticationRequestDto
+import black_and_while.model.dto.auth.AuthenticationResponseDto
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.AuthenticationServiceException
