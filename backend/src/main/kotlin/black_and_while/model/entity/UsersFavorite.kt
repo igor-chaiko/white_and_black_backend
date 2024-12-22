@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id
 
 data class UsersFavorite(
     @Id var id: Long? = null,
+    val userId: Long,
     val entityId: Long,
     val entityType: EntityToLike,
 )

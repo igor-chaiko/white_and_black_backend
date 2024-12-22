@@ -25,6 +25,12 @@ class UsersFavoriteServiceImpl(
             (SecurityContextHolder.getContext().authentication.principal as UserDetails).username
         ) ?: throw UsernameNotFoundException("User not found")
 
-        userFavoriteRepository.save(UsersFavorite(user.id!!, entityId, entityToLike))
+        userFavoriteRepository.save(
+            UsersFavorite(
+                userId = user.id!!,
+                entityId = entityId,
+                entityType = entityToLike,
+            ),
+        )
     }
 }
