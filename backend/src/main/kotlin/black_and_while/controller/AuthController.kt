@@ -1,6 +1,10 @@
 package black_and_while.controller
 
 import black_and_while.model.dto.*
+import black_and_while.model.dto.auth.AuthenticationRequestDto
+import black_and_while.model.dto.auth.AuthenticationResponseDto
+import black_and_while.model.dto.auth.RefreshRequestDto
+import black_and_while.model.dto.auth.RefreshResponseDto
 import black_and_while.model.entity.User
 import black_and_while.service.AuthenticationService
 import black_and_while.service.UserService
