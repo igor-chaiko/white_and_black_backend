@@ -28,7 +28,6 @@ COMMENT ON COLUMN coffee_shops.seats IS 'Можно ли посидеть';
 
 
 
-
 CREATE TABLE drinks
 (
     id             BIGSERIAL PRIMARY KEY,
@@ -51,7 +50,6 @@ COMMENT ON COLUMN drinks.composition IS 'Состав напитка';
 COMMENT ON COLUMN drinks.coffee_shop IS 'Кофейня, где он есть';
 COMMENT ON COLUMN drinks.temperature IS 'Температура напитка (холодный/горячий)';
 
-
 CREATE TABLE coffee_shop_reviews(
     id                 BIGSERIAL PRIMARY KEY,
     coffee_shop_id     BIGINT REFERENCES coffee_shops(id) ON DELETE CASCADE,
@@ -67,7 +65,6 @@ COMMENT ON COLUMN coffee_shop_reviews.review IS 'Текст отзыва о ка
 COMMENT ON COLUMN coffee_shop_reviews.score IS 'Оценка кофейни';
 COMMENT ON COLUMN coffee_shop_reviews.user_id IS 'id пользователя, оставившего отзыв';
 COMMENT ON COLUMN coffee_shop_reviews.created_at IS 'Дата и время создания отзыва, по умолчанию текущее время';
-
 
 CREATE TABLE drink_reviews(
     id                 BIGSERIAL PRIMARY KEY,

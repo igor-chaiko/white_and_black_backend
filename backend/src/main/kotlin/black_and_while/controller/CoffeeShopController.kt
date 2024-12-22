@@ -1,6 +1,6 @@
 package black_and_while.controller
 
-import black_and_while.model.dto.CoffeeShopReviewDto
+import black_and_while.model.dto.CoffeeShopReviewRequestDto
 import black_and_while.model.dto.CoffeeShopShortDto
 import black_and_while.service.CoffeeShopReviewService
 import black_and_while.service.CoffeeShopService
@@ -27,7 +27,7 @@ class CoffeeShopController(
         coffeeShopService.getById(id)
 
     @PostMapping("/review")
-    fun saveCoffeeShopReview(@RequestBody @Valid review: CoffeeShopReviewDto) =
+    fun saveCoffeeShopReview(@RequestBody @Valid review: CoffeeShopReviewRequestDto) =
         coffeeShopReviewService.save(review)
 
     @GetMapping("/info/{id}")

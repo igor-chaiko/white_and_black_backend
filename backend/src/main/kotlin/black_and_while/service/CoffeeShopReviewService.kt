@@ -1,6 +1,7 @@
 package black_and_while.service
 
-import black_and_while.model.dto.CoffeeShopReviewDto
+import black_and_while.model.dto.CoffeeShopReviewRequestDto
+import black_and_while.model.dto.CoffeeShopReviewResponseDto
 import black_and_while.model.entity.CoffeeShopReview
 import black_and_while.model.entity.User
 import black_and_while.repository.CoffeeShopRepository
@@ -12,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import java.time.ZoneId
 
 @Service
 class CoffeeShopReviewService(
@@ -21,13 +23,13 @@ class CoffeeShopReviewService(
 ) {
 
     @Transactional
-    fun save(coffeeShopReviewDto: CoffeeShopReviewDto): CoffeeShopReview {
+    fun save(coffeeShopReviewRequestDto: CoffeeShopReviewRequestDto): CoffeeShopReview {
         val username: String = (SecurityContextHolder.getContext().authentication.principal as UserDetails).username
         val user: User = userRepository.findByLogin(username) ?: throw UsernameNotFoundException("User not found")
         val coffeeShopReview = CoffeeShopReview(
-            coffeeShopId = coffeeShopReviewDto.coffeeShopId,
-            review = coffeeShopReviewDto.review,
-            score = coffeeShopReviewDto.score,
+            coffeeShopId = coffeeShopReviewRequestDto.coffeeShopId,
+            review = coffeeShopReviewRequestDto.review,
+            score = coffeeShopReviewRequestDto.score,
             userId = user.id!!
         )
 
