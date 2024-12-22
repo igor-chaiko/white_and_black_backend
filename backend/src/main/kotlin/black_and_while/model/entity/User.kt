@@ -5,10 +5,7 @@ import jakarta.validation.constraints.Size
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 
-
-@Table(
-    name = "users"
-)
+@Table("users")
 data class User(
     @Id var id: Long? = null,
     val login: String,
