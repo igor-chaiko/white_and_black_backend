@@ -10,13 +10,14 @@ interface UserRepository : CrudRepository<User, Long> {
 
     @Modifying
     @Query(
-        "INSERT INTO users (login, password, email) VALUES (:login, :password, :email) " +
-            "ON CONFLICT (login) DO NOTHING"
+        """INSERT INTO users (login, password, email) VALUES (:login, :password, :email)
+           ON CONFLICT (login) DO NOTHING
+           """
     )
     fun saveUserWithUniqueLogin(
         @Param("login") login: String,
         @Param("password") password: String,
-        @Param("email") email: String
+        @Param("email") email: String,
     ): Int
 
     fun findByLogin(login: String): User?

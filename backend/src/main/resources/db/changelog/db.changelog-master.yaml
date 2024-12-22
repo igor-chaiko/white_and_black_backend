@@ -7,3 +7,5 @@ databaseChangeLog:
       file: db/changelog/migrations/2024-12-03-create-refresh-tokens.sql
   - include:
       file: db/changelog/migrations/2024-12-12-create-coffeeshop-drink-review-tables.sql
+  - include:
+      file: db/changelog/migrations/2024-12-22-users-favorite-init.sql
