@@ -42,11 +42,7 @@ class JwtFilter(
                         SecurityContextHolder.getContext().authentication = authToken
                     }
                 }
-            } catch (ex: Exception) {
-                response.writer.write(
-                    """{"error": "Filter Authorization error: 
-                        |${ex.message ?: "unknown error"}"}""".trimMargin()
-                )
+            } catch (_: Exception) {
             }
         }
         filterChain.doFilter(request, response)
