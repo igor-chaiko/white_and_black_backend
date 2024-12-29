@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.RestController
 class DrinkController(
     private val drinkService: DrinkService,
 ) {
+    @GetMapping("/all")
+    fun getAllDrinks() =
+        drinkService.getAllDrinksShort()
+
     @PostMapping("/review")
     fun reviewDrink(@RequestBody @Valid drinkReviewRequestDto: DrinkReviewRequestDto) =
         drinkService.reviewDrink(drinkReviewRequestDto)

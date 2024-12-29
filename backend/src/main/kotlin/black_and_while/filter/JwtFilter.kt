@@ -42,7 +42,8 @@ class JwtFilter(
                         SecurityContextHolder.getContext().authentication = authToken
                     }
                 }
-            } catch (_: Exception) {
+            } catch (ex: Exception) {
+                logger.error("Error processing JWT token: ${ex.message}", ex)
             }
         }
         filterChain.doFilter(request, response)

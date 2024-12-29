@@ -2,6 +2,7 @@ package black_and_while.service
 
 import black_and_while.model.dto.DrinkInfoDto
 import black_and_while.model.dto.DrinkReviewRequestDto
+import black_and_while.model.dto.DrinkShortDto
 import black_and_while.model.entity.DrinkReview
 import black_and_while.model.entity.User
 import black_and_while.repository.DrinkReviewRepository
@@ -57,5 +58,22 @@ class DrinkService(
             score = if (fullDrink.scoreCount == 0) 0f else (fullDrink.scoreSum.toFloat() / fullDrink.scoreCount),
             composition = fullDrink.composition
         )
+    }
+
+    fun getAllDrinksShort() : List<DrinkShortDto> {
+        val drinks = drinksRepository.findAll()
+        val drinksShort = mutableListOf<DrinkShortDto>()
+        for (drink in drinks) {
+            drinksShort.addLast(
+                DrinkShortDto(
+                    id=drink.id!!,
+                    name = drink.name,
+                    type = drink.type,
+                    temperature = drink.temperature,
+                    score = if (drink.scoreCount == 0) 0f else (drink.scoreSum.toFloat() / drink.scoreCount),
+                )
+            )
+        }
+        return drinksShort
     }
 }
