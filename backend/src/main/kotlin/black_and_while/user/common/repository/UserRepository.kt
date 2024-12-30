@@ -1,4 +1,4 @@
-package black_and_while.repository
+package black_and_while.user.common.repository
 
 import black_and_while.model.entity.User
 import org.springframework.data.jdbc.repository.query.Modifying

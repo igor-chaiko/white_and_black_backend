@@ -1,7 +1,7 @@
-package black_and_while.controller
+package black_and_while.user.common.controller
 
 import black_and_while.model.entity.User
-import black_and_while.service.UserService
+import black_and_while.user.common.service.UserService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam

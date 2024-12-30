@@ -2,7 +2,7 @@ package black_and_while.config
 
 import black_and_while.filter.JwtFilter
 import black_and_while.service.JwtUserDetailsService
-import black_and_while.service.UserServiceImpl
+import black_and_while.user.common.service.UserServiceImpl
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpStatus

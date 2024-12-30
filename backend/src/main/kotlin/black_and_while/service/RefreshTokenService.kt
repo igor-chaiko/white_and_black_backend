@@ -3,7 +3,7 @@ package black_and_while.service
 import black_and_while.model.entity.RefreshToken
 import black_and_while.model.entity.User
 import black_and_while.repository.RefreshTokenRepository
-import black_and_while.repository.UserRepository
+import black_and_while.user.common.repository.UserRepository
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UsernameNotFoundException

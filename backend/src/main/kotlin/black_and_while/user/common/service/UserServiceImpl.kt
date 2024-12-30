@@ -1,7 +1,7 @@
-package black_and_while.service
+package black_and_while.user.common.service
 
 import black_and_while.model.entity.User
-import black_and_while.repository.UserRepository
+import black_and_while.user.common.repository.UserRepository
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 

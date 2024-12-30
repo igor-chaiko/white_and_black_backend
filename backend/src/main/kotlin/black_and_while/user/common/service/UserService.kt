@@ -1,4 +1,4 @@
-package black_and_while.service
+package black_and_while.user.common.service
 
 import black_and_while.model.entity.User
 

@@ -1,9 +1,9 @@
-package black_and_while.controller
+package black_and_while.coffe_shop.common.controller
 
 import black_and_while.model.dto.CoffeeShopReviewRequestDto
 import black_and_while.model.dto.CoffeeShopShortDto
-import black_and_while.service.CoffeeShopReviewService
-import black_and_while.service.CoffeeShopService
+import black_and_while.coffe_shop.review.service.CoffeeShopReviewService
+import black_and_while.coffe_shop.common.service.CoffeeShopService
 import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
