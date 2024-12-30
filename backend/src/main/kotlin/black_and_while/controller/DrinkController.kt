@@ -1,6 +1,6 @@
 package black_and_while.controller
 
-import black_and_while.model.dto.DrinkReviewDto
+import black_and_while.model.dto.DrinkReviewRequestDto
 import black_and_while.service.DrinkService
 import jakarta.validation.Valid
 import jakarta.validation.constraints.Positive
@@ -16,9 +16,13 @@ import org.springframework.web.bind.annotation.RestController
 class DrinkController(
     private val drinkService: DrinkService,
 ) {
+    @GetMapping("/all")
+    fun getAllDrinks() =
+        drinkService.getAllDrinksShort()
+
     @PostMapping("/review")
-    fun reviewDrink(@RequestBody @Valid drinkReviewDto: DrinkReviewDto) =
-        drinkService.reviewDrink(drinkReviewDto)
+    fun reviewDrink(@RequestBody @Valid drinkReviewRequestDto: DrinkReviewRequestDto) =
+        drinkService.reviewDrink(drinkReviewRequestDto)
 
     @GetMapping("/fullInfo/{id}")
     fun getDrink(@PathVariable id: Long) =

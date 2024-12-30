@@ -4,7 +4,7 @@ import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.Positive
 
-data class CoffeeShopReviewDto(
+data class CoffeeShopReviewRequestDto(
     @field:Positive
     val coffeeShopId: Long,
     val review: String,
