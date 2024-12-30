@@ -13,3 +13,6 @@ COMMENT ON TABLE users_favorite IS 'Сущности, которые польз�
 COMMENT ON COLUMN users_favorite.id IS 'Идентификатор записи';
 COMMENT ON COLUMN users_favorite.entity_id IS 'Идентификатор сущности';
 COMMENT ON COLUMN users_favorite.entity_type IS 'Тип сущности';
+
+--changeset igor-chaiko:6
+CREATE UNIQUE INDEX ON users_favorite (user_id);

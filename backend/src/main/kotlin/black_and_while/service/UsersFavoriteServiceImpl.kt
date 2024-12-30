@@ -1,5 +1,6 @@
 package black_and_while.service
 
+import black_and_while.model.dto.favorites.response.FavoriteDto
 import black_and_while.model.entity.UsersFavorite
 import black_and_while.model.entity.enumeration.EntityToLike
 import black_and_while.repository.UserRepository
@@ -14,23 +15,40 @@ class UsersFavoriteServiceImpl(
     private val userFavoriteRepository: UsersFavoriteRepository,
     private val userRepository: UserRepository,
 ) : UsersFavoriteService {
-    override fun saveFavorite(entityId: Long, entityType: String) {
-        val entityToLike: EntityToLike = when (entityType) {
-            "COFFEE_SHOP" -> EntityToLike.COFFEE_SHOP
-            "DRINK" -> EntityToLike.DRINK
-            else -> throw IllegalArgumentException("Unsupported entity type")
-        }
-
+    override fun like(entityId: Long, entityType: String) {
         val user = userRepository.findByLogin(
             (SecurityContextHolder.getContext().authentication.principal as UserDetails).username
         ) ?: throw UsernameNotFoundException("User not found")
+
+        userFavoriteRepository.findByUserIdAndEntityId(user.id!!, entityId)?.let {
+            userFavoriteRepository.delete(it)
+            return
+        }
 
         userFavoriteRepository.save(
             UsersFavorite(
                 userId = user.id!!,
                 entityId = entityId,
-                entityType = entityToLike,
+                entityType = convertToEntity(entityType),
             ),
         )
+    }
+
+    override fun getListByEntityType(entityType: String): FavoriteDto {
+        val user = userRepository.findByLogin(
+            (SecurityContextHolder.getContext().authentication.principal as UserDetails).username
+        ) ?: throw UsernameNotFoundException("User not found")
+
+        return FavoriteDto(
+            userFavoriteRepository.findAllByUserIdAndEntityType(user.id!!, convertToEntity(entityType)).map {
+                it.entityId
+            }
+        )
+    }
+
+    private fun convertToEntity(entityType: String): EntityToLike = when (entityType) {
+        "COFFEE_SHOP" -> EntityToLike.COFFEE_SHOP
+        "DRINK" -> EntityToLike.DRINK
+        else -> throw IllegalArgumentException("Unsupported entity type")
     }
 }
