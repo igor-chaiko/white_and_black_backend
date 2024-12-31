@@ -1,4 +1,4 @@
-package black_and_while.model.dto.favorites.request
+package black_and_while.user.favorite.model.dto.request
 
 data class LikeDto(
     val entityId: Long,

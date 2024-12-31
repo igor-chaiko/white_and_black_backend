@@ -1,7 +1,7 @@
 package black_and_while.user.favorite.controller
 
 import black_and_while.model.dto.favorites.response.FavoriteDto
-import black_and_while.model.dto.favorites.request.LikeDto
+import black_and_while.user.favorite.model.dto.request.LikeDto
 import black_and_while.user.favorite.service.UsersFavoriteService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -18,8 +18,13 @@ class UsersFavoriteController(private val usersFavoriteService: UsersFavoriteSer
         usersFavoriteService.like(likeDto.entityId, likeDto.entityType)
     }
 
-    @GetMapping("/getEntityList/{entityType}")
-    fun getFavoriteList(@PathVariable entityType: String): FavoriteDto {
-        return usersFavoriteService.getListByEntityType(entityType)
+    @GetMapping("/getFavoriteDrinks")
+    fun getFavoriteDrinks() {
+        usersFavoriteService.getFavoriteDrinks()
+    }
+
+    @GetMapping("/getFavoriteCoffeeShops")
+    fun getFavoriteCoffeeShops() {
+        usersFavoriteService.getFavoriteCoffeeShops()
     }
 }

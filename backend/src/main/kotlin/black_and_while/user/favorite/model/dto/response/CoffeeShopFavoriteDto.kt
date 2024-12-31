@@ -1,6 +1,6 @@
-package black_and_while.model.dto
+package black_and_while.user.favorite.model.dto.response
 
-data class CoffeeShopShortDto(
+data class CoffeeShopFavoriteDto(
     val id: Long,
     val name: String,
     val address: String,

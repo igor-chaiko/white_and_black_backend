@@ -1,6 +1,7 @@
 package black_and_while.user.favorite.service
 
-import black_and_while.model.dto.favorites.response.FavoriteDto
+import black_and_while.user.favorite.model.dto.response.CoffeeShopFavoriteDto
+import black_and_while.user.favorite.model.dto.response.DrinkFavoriteDto
 
 interface UsersFavoriteService {
     /**
@@ -9,7 +10,12 @@ interface UsersFavoriteService {
     fun like(entityId: Long, entityType: String)
 
     /**
-     * Получить список избранного.
+     * Получить все кофейни из избранного пользователя.
      */
-    fun getListByEntityType(entityType: String): FavoriteDto
+    fun getFavoriteCoffeeShops(): List<CoffeeShopFavoriteDto>
+
+    /**
+     * Получить все напитки из избранного пользователя.
+     */
+    fun getFavoriteDrinks(): List<DrinkFavoriteDto>
 }

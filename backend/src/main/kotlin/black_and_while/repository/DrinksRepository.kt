@@ -5,4 +5,6 @@ import org.springframework.data.repository.CrudRepository
 
 interface DrinksRepository: CrudRepository<Drink, Long> {
     fun getByCoffeeShopId(coffeeShopId: Long): List<Drink>
+
+    fun findAllByIdIn(ids: Collection<Long>): List<Drink>
 }
