@@ -1,10 +1,10 @@
-package black_and_while.service
+package black_and_while.coffe_shop.common.service
 
 import black_and_while.model.dto.CoffeeShopInfoDto
 import black_and_while.model.dto.CoffeeShopShortDto
 import black_and_while.model.dto.DrinkShortDto
 import black_and_while.model.entity.CoffeeShop
-import black_and_while.repository.CoffeeShopRepository
+import black_and_while.coffe_shop.common.repository.CoffeeShopRepository
 import black_and_while.repository.DrinksRepository
 import org.springframework.stereotype.Service
 

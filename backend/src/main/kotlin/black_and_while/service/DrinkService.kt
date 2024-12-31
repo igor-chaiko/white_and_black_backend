@@ -7,7 +7,7 @@ import black_and_while.model.entity.DrinkReview
 import black_and_while.model.entity.User
 import black_and_while.repository.DrinkReviewRepository
 import black_and_while.repository.DrinksRepository
-import black_and_while.repository.UserRepository
+import black_and_while.user.common.repository.UserRepository
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UsernameNotFoundException

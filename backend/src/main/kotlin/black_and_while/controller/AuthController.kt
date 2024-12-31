@@ -7,7 +7,7 @@ import black_and_while.model.dto.auth.RefreshRequestDto
 import black_and_while.model.dto.auth.RefreshResponseDto
 import black_and_while.model.entity.User
 import black_and_while.service.AuthenticationService
-import black_and_while.service.UserService
+import black_and_while.user.common.service.UserService
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping

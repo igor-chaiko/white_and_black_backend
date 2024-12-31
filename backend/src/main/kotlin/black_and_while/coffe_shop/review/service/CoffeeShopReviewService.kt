@@ -1,19 +1,16 @@
-package black_and_while.service
+package black_and_while.coffe_shop.review.service
 
 import black_and_while.model.dto.CoffeeShopReviewRequestDto
-import black_and_while.model.dto.CoffeeShopReviewResponseDto
 import black_and_while.model.entity.CoffeeShopReview
 import black_and_while.model.entity.User
-import black_and_while.repository.CoffeeShopRepository
-import black_and_while.repository.CoffeeShopReviewRepository
-import black_and_while.repository.UserRepository
-import org.slf4j.LoggerFactory
+import black_and_while.coffe_shop.common.repository.CoffeeShopRepository
+import black_and_while.coffe_shop.review.repository.CoffeeShopReviewRepository
+import black_and_while.user.common.repository.UserRepository
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import java.time.ZoneId
 
 @Service
 class CoffeeShopReviewService(

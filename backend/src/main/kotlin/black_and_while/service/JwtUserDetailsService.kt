@@ -1,6 +1,6 @@
 package black_and_while.service
 
-import black_and_while.repository.UserRepository
+import black_and_while.user.common.repository.UserRepository
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
