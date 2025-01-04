@@ -1,13 +1,14 @@
 package black_and_white.user.common.controller
 
+import black_and_white.user.common.model.dto.request.PasswordChangeDto
 import black_and_white.user.common.model.entity.User
 import black_and_white.user.common.service.UserService
+import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
+@RequestMapping("/user")
 class UserHandler(
     private val userService: UserService,
 ) {
@@ -30,4 +31,12 @@ class UserHandler(
 
         return ResponseEntity.ok().build()
     }
+
+    @PostMapping("/changePassword")
+    fun changePassword(@Valid @RequestBody passwordChangeDto: PasswordChangeDto) =
+        userService.changePassword(
+            passwordChangeDto.oldPassword,
+            passwordChangeDto.newPassword,
+            passwordChangeDto.newPasswordRepeat,
+        )
 }

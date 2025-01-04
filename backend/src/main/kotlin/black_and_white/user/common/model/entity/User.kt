@@ -10,7 +10,7 @@ data class User(
     @Id var id: Long? = null,
     val login: String,
     @Size(min = 7, message = "Пароль должен содержать не менее 7 символов")
-    val password: String,
+    var password: String,
     @Email
     val email: String,
 )
