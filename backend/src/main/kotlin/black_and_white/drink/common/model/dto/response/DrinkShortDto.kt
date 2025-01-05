@@ -9,4 +9,5 @@ data class DrinkShortDto(
     val type: DrinkType,
     val temperature: DrinkTemperature,
     val score: Float,
+    val isFavorite: Boolean,
 )
