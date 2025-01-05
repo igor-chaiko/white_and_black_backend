@@ -24,8 +24,9 @@ class UsersFavoriteServiceImpl(
 ) : UsersFavoriteService {
     override fun like(entityId: Long, entityType: String) {
         val user = userRepository.findByLogin(getUserLogin()) ?: throw UsernameNotFoundException("User not found")
+        val enumEntityType = entityType.convertToFavoriteEntity()
 
-        userFavoriteRepository.findByUserIdAndEntityId(user.id!!, entityId)?.let {
+        userFavoriteRepository.findByUserIdAndEntityIdAndEntityType(user.id!!, entityId, enumEntityType)?.let {
             userFavoriteRepository.delete(it)
             return
         }
@@ -34,7 +35,7 @@ class UsersFavoriteServiceImpl(
             UsersFavorite(
                 userId = user.id!!,
                 entityId = entityId,
-                entityType = entityType.convertToFavoriteEntity(),
+                entityType = enumEntityType,
             ),
         )
     }

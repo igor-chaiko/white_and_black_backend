@@ -17,12 +17,10 @@ class UsersFavoriteController(private val usersFavoriteService: UsersFavoriteSer
     }
 
     @GetMapping("/getFavoriteDrinks")
-    fun getFavoriteDrinks() {
+    fun getFavoriteDrinks() =
         usersFavoriteService.getFavoriteDrinks()
-    }
 
     @GetMapping("/getFavoriteCoffeeShops")
-    fun getFavoriteCoffeeShops() {
+    fun getFavoriteCoffeeShops() =
         usersFavoriteService.getFavoriteCoffeeShops()
-    }
 }
