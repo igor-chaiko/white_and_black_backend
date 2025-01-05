@@ -21,7 +21,7 @@ class UserServiceImpl(
 
     override fun changePassword(oldPassword: String, newPassword: String, newPasswordRepeat: String) {
         if (newPassword != newPasswordRepeat) {
-            throw BadCredentialsException("Напишите новый пароль дважды")
+            throw BadCredentialsException("Введенные пароли не совпадают")
         }
 
         val username: String = (SecurityContextHolder.getContext().authentication.principal as UserDetails).username
