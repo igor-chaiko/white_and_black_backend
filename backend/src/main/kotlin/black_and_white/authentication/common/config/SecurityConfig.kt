@@ -60,10 +60,10 @@ class SecurityConfig(
 
     @Bean
     fun authenticationManager(authenticationConfiguration: AuthenticationConfiguration): AuthenticationManager =
-        authenticationConfiguration.getAuthenticationManager()
+        authenticationConfiguration.authenticationManager
 
     @Bean
-    fun daoAuthenticationProvider(userServiceImpl: UserServiceImpl): DaoAuthenticationProvider
+    fun daoAuthenticationProvider(): DaoAuthenticationProvider
         = DaoAuthenticationProvider().also {
             it.setPasswordEncoder(passwordEncoder())
             it.setUserDetailsService(jwtUserDetailsService)

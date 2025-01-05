@@ -12,4 +12,6 @@ interface UserService {
      * @param user пользователь
      */
     fun saveUser(user: User): Int
+
+    fun changePassword(oldPassword: String, newPassword: String, newPasswordRepeat: String)
 }
