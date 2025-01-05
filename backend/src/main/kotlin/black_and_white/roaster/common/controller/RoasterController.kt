@@ -1,5 +1,6 @@
 package black_and_white.roaster.common.controller
 
+import black_and_white.product.common.service.ProductService
 import black_and_white.roaster.common.model.dto.response.RoasterShortDto
 import black_and_white.roaster.common.model.entity.Roaster
 import black_and_white.roaster.common.repository.RoasterRepository
@@ -17,6 +18,7 @@ class RoasterController(
     private val roasterRepository: RoasterRepository,
     private val roasterReviewService: RoasterReviewService,
     private val roasterReviewRepository: RoasterReviewRepository,
+    private val productService: ProductService,
 ) {
     @GetMapping("/all")
     fun getAll() : List<RoasterShortDto> =
@@ -30,12 +32,13 @@ class RoasterController(
     fun saveReview(@RequestBody roasterReviewDto: RoasterReviewRequestDto): RoasterReview =
         roasterReviewService.save(roasterReviewDto)
 
-
     @GetMapping("/info/{id}")
     fun getRoasterInfoById(@PathVariable id: Long) =
         roasterService.getInfoById(id)
 
-//    @GetMapping("/products/{id}")
+    @GetMapping("/products/{id}")
+    fun getProductById(@PathVariable id: Long) =
+        productService.findAllByRoasterWithId(id)
 
     @GetMapping("/reviews/{id}")
     fun getReviewsById(@PathVariable id: Long) =
