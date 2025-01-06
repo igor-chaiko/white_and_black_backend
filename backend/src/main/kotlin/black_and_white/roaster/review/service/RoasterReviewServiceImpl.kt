@@ -32,8 +32,8 @@ class RoasterReviewServiceImpl(
 
         val savedRoasterReview = roasterReviewRepository.save(roasterReview)
         val reviewedRoaster = roasterRepository.findById(roasterReviewRequest.roasterId).get()
-        reviewedRoaster.scoreSum++
-        reviewedRoaster.scoreCount += roasterReviewRequest.score
+        reviewedRoaster.scoreCount++
+        reviewedRoaster.scoreSum += roasterReviewRequest.score
         roasterRepository.save(reviewedRoaster)
         return savedRoasterReview
     }

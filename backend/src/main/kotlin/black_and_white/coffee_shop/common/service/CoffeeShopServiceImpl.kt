@@ -9,12 +9,16 @@ import black_and_white.coffee_shop.common.model.entity.CoffeeShop
 import black_and_white.coffee_shop.common.repository.CoffeeShopRepository
 import black_and_white.drink.common.converter.convertToShortDto
 import black_and_white.drink.common.repository.DrinkRepository
+import black_and_white.product.common.converter.convertToProductOfCoffeeShopDto
+import black_and_white.product.common.model.dto.response.ProductOfCoffeeShopDto
+import black_and_white.product.common.repository.ProductRepository
 import org.springframework.stereotype.Service
 
 @Service
 class CoffeeShopServiceImpl(
     private val coffeeShopRepository: CoffeeShopRepository,
     private val drinkRepository: DrinkRepository,
+    private val productRepository: ProductRepository,
 ) : CoffeeShopService {
     override fun getAllShort() : List<CoffeeShopShortDto> =
         coffeeShopRepository.findAll().map { it.convertToShortDto() }
@@ -32,4 +36,12 @@ class CoffeeShopServiceImpl(
 
     override fun getInfoById(coffeeShopId: Long) : CoffeeShopInfoDto =
         getById(coffeeShopId).convertToInfoDto()
+
+    override fun getProductsById(coffeeShopId: Long): List<ProductOfCoffeeShopDto> {
+        val coffeeShop = getById(coffeeShopId)
+        val productIds = coffeeShop.products.map { it.productId }
+        return productRepository.findAllById(productIds).map {
+            it.convertToProductOfCoffeeShopDto()
+        }
+    }
 }

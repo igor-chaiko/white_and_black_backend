@@ -32,7 +32,7 @@ class ProductReviewServiceImpl(
 
         val reviewedProduct = productRepository.findById(productReview.productId).get()
         reviewedProduct.scoreCount++
-        reviewedProduct.scoreCount += productReviewRequestDto.score
-        productReviewRepository.save(productReview)
+        reviewedProduct.scoreSum += productReviewRequestDto.score
+        productRepository.save(reviewedProduct)
     }
 }

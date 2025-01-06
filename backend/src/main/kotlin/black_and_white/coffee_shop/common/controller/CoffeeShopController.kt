@@ -42,4 +42,7 @@ class CoffeeShopController(
     fun getReviewsById(@PathVariable id: Long) =
         coffeeShopReviewService.getReviewsByCoffeeShopId(id)
 
+    @GetMapping("/products/{id}")
+    fun getProductsById(@PathVariable id: Long) =
+        coffeeShopService.getProductsById(id)
 }
