@@ -8,4 +8,6 @@ interface UsersFavoriteRepository : CrudRepository<UsersFavorite, Long> {
     fun findByUserIdAndEntityIdAndEntityType(userId: Long, entityId: Long, entityType: EntityToLike): UsersFavorite?
 
     fun findAllByUserIdAndEntityType(userId: Long, entityType: EntityToLike): List<UsersFavorite>
+
+    fun existsByUserIdAndEntityIdAndEntityType(userId: Long, entityId: Long, entityType: EntityToLike): Boolean
 }

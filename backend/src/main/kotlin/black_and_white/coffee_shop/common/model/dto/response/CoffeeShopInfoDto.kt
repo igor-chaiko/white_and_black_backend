@@ -8,4 +8,5 @@ data class CoffeeShopInfoDto(
     val withLaptop: Boolean?,
     val withDog: Boolean?,
     val seats: Boolean?,
+    val isFavorite: Boolean,
 )

@@ -11,4 +11,5 @@ data class DrinkInfoDto(
     val coffeeShop: String,
     val score: Float,
     val composition: String?,
+    val isFavorite: Boolean,
 )

@@ -8,4 +8,5 @@ data class CoffeeShopShortDto(
     val withDog: Boolean?,
     val withLaptop: Boolean?,
     val seats: Boolean?,
+    val isFavorite: Boolean,
 )
