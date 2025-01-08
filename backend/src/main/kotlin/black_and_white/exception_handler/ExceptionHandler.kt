@@ -17,12 +17,14 @@ class ExceptionHandler {
     }
 
     @ExceptionHandler(NoSuchElementException::class)
-    fun handleNoSuchElementException(ex: NoSuchElementException): ResponseEntity<String> {
-        return ResponseEntity(ex.message, HttpStatus.NOT_FOUND)
+    fun handleNoSuchElementException(ex: NoSuchElementException): ResponseEntity<Map<String, String>> {
+        val response = mapOf("message" to (ex.message ?: "Ресурс не найден"))
+        return ResponseEntity(response, HttpStatus.NOT_FOUND)
     }
 
     @ExceptionHandler(BadCredentialsException::class)
-    fun handleNoSuchElementException(ex: BadCredentialsException): ResponseEntity<String> {
-        return ResponseEntity(ex.message, HttpStatus.BAD_REQUEST)
+    fun handleBadCredentialsException(ex: BadCredentialsException): ResponseEntity<Map<String, String>> {
+        val response = mapOf("message" to "Неправильный логин или пароль")
+        return ResponseEntity(response, HttpStatus.BAD_REQUEST)
     }
 }
